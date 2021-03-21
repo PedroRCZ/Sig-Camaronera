@@ -7,13 +7,15 @@ import { VentasComponent } from './ventas/ventas.component';
 import { LoginComponent } from './login/login.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { FormsModule } from '@angular/forms';
+import { FacturarVentasComponent } from './facturar-ventas/facturar-ventas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VentasComponent,
     LoginComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    FacturarVentasComponent
   ],
   imports: [
     BrowserModule,
