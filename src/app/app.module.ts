@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { FacturarVentasComponent } from './facturar-ventas/facturar-ventas.component';
 import { IngresoClienteComponent } from './ingreso-cliente/ingreso-cliente.component';
 import { VisualizarInventarioComponent } from './visualizar-inventario/visualizar-inventario.component';
+import { IngresoProveedorComponent } from './ingreso-proveedor/ingreso-proveedor.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { VisualizarInventarioComponent } from './visualizar-inventario/visualiza
     PrincipalComponent,
     FacturarVentasComponent,
     IngresoClienteComponent,
-    VisualizarInventarioComponent
+    VisualizarInventarioComponent,
+    IngresoProveedorComponent
   ],
   imports: [
     BrowserModule,
