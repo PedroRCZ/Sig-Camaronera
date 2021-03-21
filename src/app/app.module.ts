@@ -13,6 +13,7 @@ import { VisualizarInventarioComponent } from './visualizar-inventario/visualiza
 import { IngresoProveedorComponent } from './ingreso-proveedor/ingreso-proveedor.component';
 import { IngresoProductoComponent } from './ingreso-producto/ingreso-producto.component';
 import { IngresoGastoComponent } from './ingreso-gasto/ingreso-gasto.component';
+import { IngresoConsumoComponent } from './ingreso-consumo/ingreso-consumo.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { IngresoGastoComponent } from './ingreso-gasto/ingreso-gasto.component';
     VisualizarInventarioComponent,
     IngresoProveedorComponent,
     IngresoProductoComponent,
-    IngresoGastoComponent
+    IngresoGastoComponent,
+    IngresoConsumoComponent
   ],
   imports: [
     BrowserModule,
