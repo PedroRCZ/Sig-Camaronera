@@ -1,0 +1,54 @@
+.ingresos{
+    display: grid;
+    grid-template-areas: 
+    " a "
+    " b "
+    " c "
+    " d ";
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+.struc{
+    display: grid;
+    grid-template-areas: 
+    "a b";
+    text-align: center;
+    margin: 5px 0 5px 0;
+}
+.cl-a{
+    grid-area: a;
+}
+.cl-b{
+    grid-area: b;
+}
+.cl-c{
+    grid-area: c;
+}
+.cl-d{
+    grid-area: d;
+}
+.lb{
+    grid-area: a;    
+}
+.ip{
+    grid-area: b;
+}
+
+.btn-cliente{
+    display: grid;
+    grid-template-areas: 
+    "a a a b b c c c";
+    margin: 10px;
+}
+
+.btn{
+    grid-area: b;
+}
+
+.ingre{
+    display: grid;
+    grid-template-areas: 
+    "a b";
+    text-align: center;
+    margin: 20px 0 0 0;
+}
