@@ -1,0 +1,84 @@
+
+.id-fecha{
+    display: grid;
+    grid-template-areas: 
+    " a "
+    " b ";
+}
+
+.id{
+    grid-area: a;
+    display: grid;
+    grid-template-areas: 
+    " a b b b b c c c c";
+}
+
+.fecha{
+    grid-area: b;
+    display: grid;
+    grid-template-areas: 
+    " a b b b b c c c c";
+}
+
+.label{
+    grid-area: a;
+    width: 100px;
+}
+
+.input{
+    grid-area: b;
+}
+
+.buscar{
+    display: grid;
+    grid-template-areas: 
+    " a b b b b c ";
+}
+
+.btn{
+    grid-area: a;
+}
+
+.input-btn{
+    grid-area: b;
+}
+
+.ingresos{
+    display: grid;
+    grid-template-areas: 
+    " a f d i "
+    " b g e j "
+    " c h l k";
+    text-align: center;
+}
+
+.lb-a{
+    grid-area: a;
+}
+.lb-b{
+    grid-area: b;
+}
+.lb-c{
+    grid-area: c;
+}
+.lb-d{
+    grid-area: d;
+}
+.lb-e{
+    grid-area: e;
+}
+.ip-a{
+    grid-area: f;
+}
+.ip-b{
+    grid-area: g;
+}
+.ip-c{
+    grid-area: h;
+}
+.ip-d{
+    grid-area: i;
+}
+.ip-e{
+    grid-area: j;
+}

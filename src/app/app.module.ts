@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { FormsModule } from '@angular/forms';
 import { FacturarVentasComponent } from './facturar-ventas/facturar-ventas.component';
+import { IngresoClienteComponent } from './ingreso-cliente/ingreso-cliente.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FacturarVentasComponent } from './facturar-ventas/facturar-ventas.compo
     VentasComponent,
     LoginComponent,
     PrincipalComponent,
-    FacturarVentasComponent
+    FacturarVentasComponent,
+    IngresoClienteComponent
   ],
   imports: [
     BrowserModule,
