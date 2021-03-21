@@ -9,6 +9,7 @@ import { PrincipalComponent } from './principal/principal.component';
 import { FormsModule } from '@angular/forms';
 import { FacturarVentasComponent } from './facturar-ventas/facturar-ventas.component';
 import { IngresoClienteComponent } from './ingreso-cliente/ingreso-cliente.component';
+import { VisualizarInventarioComponent } from './visualizar-inventario/visualizar-inventario.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { IngresoClienteComponent } from './ingreso-cliente/ingreso-cliente.compo
     LoginComponent,
     PrincipalComponent,
     FacturarVentasComponent,
-    IngresoClienteComponent
+    IngresoClienteComponent,
+    VisualizarInventarioComponent
   ],
   imports: [
     BrowserModule,
