@@ -1,0 +1,35 @@
+
+<main class="form-signin text-center">
+    <form>
+        <!--<img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+        <h1 class="h3 mb-3 fw-normal">Iniciar Sesión</h1>
+        <label for="inputUser" class="visually-hidden">ID usuario</label>
+        <input type="user" 
+            id="user" 
+            name = "nombre"
+            class="form-control" 
+            placeholder="Usuario" 
+            required autofocus
+            [(ngModel)]="usuarioInput"
+        />
+        <label for="inputPassword" class="visually-hidden">Contraseña</label>
+        <input type="password" 
+            id="inputPassword" 
+            class="form-control" 
+            placeholder="contraseña" 
+            required
+            [(ngModel)]="contraInput"
+        />
+        <div class="checkbox mb-3">
+            <label>
+    <input type="checkbox" value="remember-me"> Recuérdame
+    </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" 
+            type="submit"
+            (click)="inicioSec()">
+            Ingresar
+        </button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
+    </form>
+</main>

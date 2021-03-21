@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dash';
+  esta = false; // cambiar a True
+
+  inicioSeccion(estado: boolean){
+    this.esta = estado;
+  }
+
 }
