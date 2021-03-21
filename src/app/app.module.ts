@@ -11,6 +11,8 @@ import { FacturarVentasComponent } from './facturar-ventas/facturar-ventas.compo
 import { IngresoClienteComponent } from './ingreso-cliente/ingreso-cliente.component';
 import { VisualizarInventarioComponent } from './visualizar-inventario/visualizar-inventario.component';
 import { IngresoProveedorComponent } from './ingreso-proveedor/ingreso-proveedor.component';
+import { IngresoProductoComponent } from './ingreso-producto/ingreso-producto.component';
+import { IngresoGastoComponent } from './ingreso-gasto/ingreso-gasto.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { IngresoProveedorComponent } from './ingreso-proveedor/ingreso-proveedor
     FacturarVentasComponent,
     IngresoClienteComponent,
     VisualizarInventarioComponent,
-    IngresoProveedorComponent
+    IngresoProveedorComponent,
+    IngresoProductoComponent,
+    IngresoGastoComponent
   ],
   imports: [
     BrowserModule,
