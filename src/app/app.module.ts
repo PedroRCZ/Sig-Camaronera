@@ -14,6 +14,7 @@ import { IngresoProveedorComponent } from './ingreso-proveedor/ingreso-proveedor
 import { IngresoProductoComponent } from './ingreso-producto/ingreso-producto.component';
 import { IngresoGastoComponent } from './ingreso-gasto/ingreso-gasto.component';
 import { IngresoConsumoComponent } from './ingreso-consumo/ingreso-consumo.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { IngresoConsumoComponent } from './ingreso-consumo/ingreso-consumo.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule, 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -57,13 +57,13 @@
                 </h6>
                 <ul class="nav flex-column mb-2">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="ventas/visualizar">
                             <span data-feather="layers"></span> Visualizar Ventas
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="ventas/facturar">
                             <span data-feather="file-text"></span> Facturar 
                         </a>
                     </li>
@@ -78,7 +78,7 @@
                 </h6>
                 <ul class="nav flex-column mb-2">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="cliente">
                             <span data-feather="layers"></span> Ingreso
                         </a>
                     </li>
@@ -92,7 +92,7 @@
                 </h6>
                 <ul class="nav flex-column mb-2">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="inventario">
                             <span data-feather="layers"></span> Visualizar Inventario
                         </a>
                     </li>
@@ -106,17 +106,17 @@
                 </h6>
                 <ul class="nav flex-column mb-2">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span> Pago de Producto
+                        <a class="nav-link" href="gastos/producto">
+                            <span data-feather="layers"></span> Nuevo Producto
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span> Pago a Proveedor
+                        <a class="nav-link" href="gastos/proveedor">
+                            <span data-feather="layers"></span>Nuevo Proveedor
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="gastos">
                             <span data-feather="layers"></span> Nuevo
                         </a>
                     </li>
@@ -139,13 +139,7 @@
         </nav>
     </div>
     <main class="cuerpo">
-        <!--<app-ventas></app-ventas> -->
-        <!--<app-facturar-ventas></app-facturar-ventas>-->
-        <!--<app-ingreso-cliente></app-ingreso-cliente>-->
-        <!--<app-visualizar-inventario></app-visualizar-inventario>-->
-        <!--<app-ingreso-proveedor></app-ingreso-proveedor>-->
-        <!--<app-ingreso-producto></app-ingreso-producto>-->
-        <app-ingreso-gasto></app-ingreso-gasto>
+        <router-outlet></router-outlet>
     </main>
 </div>
 
