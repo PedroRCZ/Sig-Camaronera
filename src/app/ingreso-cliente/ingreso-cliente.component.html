@@ -1,62 +1,115 @@
 
 <div>
-    <form action="">
+    <form action="" [formGroup]="clienteForm" (ngSubmit)="agregarCliente()">
         <div class="cliente">
             <h3>Cliente</h3>
             <div class="ingresos">
                 <div class="cl-a struc">
                     <label class="visually-hidden lb">Cedula</label>
                     <input type="number" 
+                        formControlName="id"
                         id="cedula_clien" 
                         name = "cedula_factu"
                         class="form-control ip" 
                         placeholder="Cedula" 
                     />
+                    <div class="text-danger"
+                        *ngIf="clienteForm.get('id')?.hasError('required')
+                         && clienteForm.get('id')?.touched">
+                         <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
                 </div>
                 <div class="cl-b struc">
                     <label class="visually-hidden lb">Nombre</label>
                     <input type="text" 
+                            formControlName="nombre"
                             id="nombre_factu" 
                             name = "nombre_factu"
                             class="form-control ip" 
                             placeholder="Nombre" 
                         />
+                    <div class="text-danger"
+                        *ngIf="clienteForm.get('nombre')?.hasError('required')
+                         && clienteForm.get('nombre')?.touched">
+                         <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
                 </div>
                 <div class="cl-c struc">
                     <label class="visually-hidden lb">Ciudad</label>
                     <input type="text" 
+                        formControlName="ciudad"
                         id="ciudad_factu" 
                         name = "ciudad_factu"
                         class="form-control ip" 
                         placeholder="Ciudad" 
                     />
+                    <div class="text-danger"
+                        *ngIf="clienteForm.get('ciudad')?.hasError('required')
+                        && clienteForm.get('ciudad')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
                 </div>  
                 <div class="cl-d struc">
                     <label class="visually-hidden lb">Dirección</label>
                     <input type="text" 
                         id="direcc_factu" 
+                        formControlName="direcc"
                         name = "direcc_factu"
                         class="form-control ip" 
                         placeholder="Dirección" 
                     />
+                    <div class="text-danger"
+                        *ngIf="clienteForm.get('direcc')?.hasError('required')
+                        && clienteForm.get('direcc')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
                 </div>
                 <div class="cl-e struc">
                     <label class="visually-hidden lb">Teléfono</label>
                     <input type="number" 
+                        formControlName="tel"
                         id="telf_factu" 
                         name = "telf_factu"
                         class="form-control ip" 
                         placeholder="Teléfono" 
                     />
+                    <div class="text-danger"
+                        *ngIf="clienteForm.get('tel')?.hasError('required')
+                        && clienteForm.get('tel')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
                 </div>  
                 <div class="btn-cliente f">
                     <button class="w-100 btn btn-lg btn-primary btn" 
-                    type="submit">
+                    type="submit" [disabled]="clienteForm.invalid">
                         Registrar
                     </button> 
                 </div>
             </div>
         </div>  
     </form>
+</div>
+
+<div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Cedula</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Telefono</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let cliente of listCliente">
+            <th scope="row">{{cliente.cliente_id}}</th>
+            <td>{{cliente.cliente_nombre}}</td>
+            <td>{{cliente.cliente_ciudad}}</td>
+            <td>{{cliente.cliente_direccion}}</td>
+            <td>{{cliente.cliente_telefono}}</td>
+          </tr>    
+        </tbody>
+      </table>
 </div>
  

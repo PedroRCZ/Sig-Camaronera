@@ -14,7 +14,8 @@
 .struc{
     display: grid;
     grid-template-areas: 
-    "a b b b c c c c c c";
+    "a b b b c c c c c c"
+    "d d d d d d d d d d";
     text-align: center;
     margin: 5px 0 5px 0;
 }
@@ -42,6 +43,10 @@
 }
 .ip{
     grid-area: b;
+}
+
+.text-danger{
+    grid-area: d;
 }
 
 .btn-cliente{

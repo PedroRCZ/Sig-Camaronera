@@ -1,29 +1,25 @@
 
 <main class="form-signin text-center">
-    <form>
+    <form class="item" #f="ngForm" (sgSubmit)="f.form.valid && login(f)">
         <!--<img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
         <h1 class="h3 mb-3 fw-normal">Iniciar Sesión</h1>
         <label for="inputUser" class="visually-hidden">ID usuario</label>
         <input type="user" 
             id="user" 
-            name = "nombre"
+            name = "user"
             class="form-control" 
             placeholder="Usuario" 
-            required autofocus
-            [(ngModel)]="usuarioInput"
+            ngModel required autofocus
         />
         <label for="inputPassword" class="visually-hidden">Contraseña</label>
         <input type="password" 
             id="inputPassword" 
             class="form-control" 
-            placeholder="contraseña" 
-            required
-            [(ngModel)]="contraInput"
+            name = "password"
+            placeholder="password" 
+            ngModel required
         />
         <div class="checkbox mb-3">
-            <label>
-    <input type="checkbox" value="remember-me"> Recuérdame
-    </label>
         </div>
         <button class="w-100 btn btn-lg btn-primary" 
             type="submit"

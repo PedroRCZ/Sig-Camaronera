@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -14,5 +15,10 @@ export class LoginComponent  {
 
   inicioSec():void{
     this.acceso.emit(false)
+  }
+
+  login(form:NgForm){
+    const usuario = form.value.user;
+    const password = form.value.password;
   }
 }
