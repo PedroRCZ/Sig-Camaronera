@@ -1,58 +1,88 @@
 
 
 <div>
-    <form action="">
+    <form action="" [formGroup]="proveedorForm" (ngSubmit)="agregarProveedor()">
         <div class="proveedor">
             <h3>Proveedor</h3>
             <div class="ingresos">
                 <div class="cl-a struc">
                     <label class="visually-hidden lb">RUC</label>
                     <input type="number" 
+                        formControlName="id"
                         id="ruc_pro_gasto" 
                         name = "ruc_pro_gasto"
                         class="form-control ip" 
                         placeholder="RUC" 
                     />
+                    <div class="text-danger"
+                        *ngIf="proveedorForm.get('id')?.hasError('required')
+                         && proveedorForm.get('id')?.touched">
+                         <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
                 </div>
                 <div class="cl-b struc">
                     <label class="visually-hidden lb">Nombre</label>
                     <input type="text" 
+                            formControlName="nombre"
                             id="nombre_pro_gasto" 
                             name = "nombre_pro_gasto"
                             class="form-control ip" 
                             placeholder="Nombre" 
                         />
+                    <div class="text-danger"
+                        *ngIf="proveedorForm.get('nombre')?.hasError('required')
+                         && proveedorForm.get('nombre')?.touched">
+                         <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
                 </div>
                 <div class="cl-c struc">
                     <label class="visually-hidden lb">Ciudad</label>
                     <input type="text" 
+                        formControlName="ciudad"
                         id="ciudad_pro_gasto" 
                         name = "ciudad_pro_gasto"
                         class="form-control ip" 
                         placeholder="Ciudad" 
                     />
+                    <div class="text-danger"
+                        *ngIf="proveedorForm.get('ciudad')?.hasError('required')
+                        && proveedorForm.get('ciudad')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
                 </div>  
                 <div class="cl-d struc">
                     <label class="visually-hidden lb">Dirección</label>
                     <input type="text" 
+                        formControlName="direc"
                         id="direcc_pro_gasto" 
                         name = "direcc_pro_gasto"
                         class="form-control ip" 
                         placeholder="Dirección" 
                     />
+                    <div class="text-danger"
+                        *ngIf="proveedorForm.get('direc')?.hasError('required')
+                        && proveedorForm.get('direcc')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                </div>
                 </div>
                 <div class="cl-e struc">
                     <label class="visually-hidden lb">Teléfono</label>
                     <input type="number" 
                         id="telf_pro_gasto" 
+                        formControlName="tel"
                         name = "telf_pro_gasto"
                         class="form-control ip" 
                         placeholder="Teléfono" 
                     />
+                    <div class="text-danger"
+                        *ngIf="proveedorForm.get('tel')?.hasError('required')
+                        && proveedorForm.get('tel')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
                 </div>  
                 <div class="btn-cliente f">
                     <button class="w-100 btn btn-lg btn-primary btn" 
-                    type="submit">
+                    type="submit" [disabled]="proveedorForm.invalid">
                         Registrar
                     </button> 
                 </div>

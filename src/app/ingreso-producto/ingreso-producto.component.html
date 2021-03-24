@@ -1,13 +1,14 @@
 
 
 <div>
-    <form action="">
+    <form action="" [formGroup]="productoForm" (ngSubmit)="agregarProducto">
         <div class="proveedor">
             <h3>Producto</h3>
             <div class="ingresos">
                 <div class="cl-a struc">
                     <label class="visually-hidden lb">ID</label>
                     <input type="number" 
+                        formControlName="id"
                         id="id_produc_gasto" 
                         name = "id_produc_gasto"
                         class="form-control ip" 
@@ -17,6 +18,7 @@
                 <div class="cl-b struc">
                     <label class="visually-hidden lb">Nombre</label>
                     <input type="text" 
+                            formControlName="nombre"
                             id="nombre_produc_gasto" 
                             name = "nombre_produc_gasto"
                             class="form-control ip" 
@@ -26,6 +28,7 @@
                 <div class="cl-c struc">
                     <label class="visually-hidden lb">Precio</label>
                     <input type="text" 
+                        formControlName="precio"
                         id="precio_produc_gasto" 
                         name = "precio_produc_gasto"
                         class="form-control ip" 
@@ -35,8 +38,9 @@
                 <div>
                     <h3>Proveedor</h3>
                     <div class="cl-a struc">
-                    <button class="lb">Buscar</button>
+                    <button class="lb" (click)="consultarProveedor()">Buscar</button>
                     <input type="number" 
+                        formControlName="idProducto"
                         id="ruc_pro_gasto" 
                         name = "ruc_pro_gasto"
                         class="form-control ip" 
@@ -46,6 +50,7 @@
                 <div class="cl-b struc">
                     <label class="visually-hidden lb">Nombre</label>
                     <input type="text" 
+                            formControlName="nombreProducto"
                             id="nombre_pro_gasto" 
                             name = "nombre_pro_gasto"
                             class="form-control ip" 
@@ -55,7 +60,7 @@
                 </div>
                 <div class="btn-cliente f">
                     <button class="w-100 btn btn-lg btn-primary btn" 
-                    type="submit">
+                    type="submit" [disabled]="productoForm.invalid">
                         Registrar
                     </button> 
                 </div>
