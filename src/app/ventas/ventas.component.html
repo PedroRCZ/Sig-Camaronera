@@ -5,17 +5,21 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">ID</th>
+            <th scope="col">Id factura</th>
             <th scope="col">Fecha</th>
-            <th scope="col">Precio Camarón</th>
+            <th scope="col">CI clinte</th>
+            <th scope="col">Talla Camarón</th>
+            <th scope="col">Peso Kg</th>
             <th scope="col">Precio Final</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor = "let factura of listFacturas">
             <th scope="row">{{factura.factura_id}}</th>
-            <td>{{factura.factura_fecha}}</td>
-            <td>{{factura.factura_precio_camaron}}</td>
+            <td>{{factura.factura_fecha}}</td> 
+            <td>{{factura.cliente_id}}</td>
+            <td>{{factura.camaron_talla}}</td>
+            <td>{{factura.monto_peso}}</td>
             <td>{{factura.factura_precio_final}}</td>
           </tr>    
         </tbody>
