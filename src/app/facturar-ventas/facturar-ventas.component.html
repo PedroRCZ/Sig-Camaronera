@@ -1,65 +1,81 @@
 
 <div>
-    <form action="">
+    <form action="" [formGroup]="facturarFrom" >
         <div class="id-fecha">
             <div class="id">
                 <label class="visually-hidden label">ID usuario</label>
                 <input type="number" 
-                    id="id_factu" 
-                    name = "id_factu"
+                    formControlName="id_factura"
                     class="form-control input" 
                     placeholder="Id" 
                 />
+                <div class="text-danger"
+                    *ngIf="facturarFrom.get('id_factura')?.hasError('required')
+                         && facturarFrom.get('id_factura')?.touched">
+                    <span>Este campo es <strong>Obligatorio</strong> </span>
+                </div>
             </div>
             <div class="fecha">
                 <label class="visually-hidden label">Fecha</label>
-                <p class="input">Aqui va un selector de fecha</p>
+                <input type="date"
+                    formControlName="fecha_factura" 
+                    class="form-control input" 
+                    placeholder="Id" 
+                />
+                <div class="text-danger"
+                    *ngIf="facturarFrom.get('fecha_factura')?.hasError('required')
+                        && facturarFrom.get('fecha_factura')?.touched">
+                    <span>Este campo es <strong>Obligatorio</strong> </span>
+                </div>
             </div>
         </div>   
         <div class="cliente">
             <h3>Cliente</h3>
             <div class="buscar">
-                <button class="btn">Buscar</button>
+                <button class="btn" (click)="consultarCliente()">Buscar</button>
                 <input type="text" 
-                    id="fac-cliente" 
-                    name = "fac-cliente"
+                    formControlName="id"
+                    [(ngModel)]="idcli"
                     class="form-control input-btn" 
-                    placeholder="Cliente" 
-                />
-            </div>
-            <div class="ingresos">
-                <label class="visually-hidden lb-a">Cedula</label>
-                <input type="number" 
-                    id="cedula_factu" 
-                    name = "cedula_factu"
-                    class="form-control ip-a" 
                     placeholder="Cedula" 
                 />
-                <label class="visually-hidden lb-b">Nombre</label>
+                <div class="text-danger"
+                    *ngIf="facturarFrom.get('id')?.hasError('required')
+                        && facturarFrom.get('id')?.touched">
+                    <span>Este campo es <strong>Obligatorio</strong> </span>
+                </div>
+            </div>
+            <div class="ingresos">
+                <label class="visually-hidden lb-a">Nombre</label>
                 <input type="text" 
-                    id="nombre_factu" 
-                    name = "nombre_factu"
-                    class="form-control ip-b" 
+                    formControlName="nombre"
+                    [ngModel]="nomcli"
+                    class="form-control ip-a" 
                     placeholder="Nombre" 
                 />
-                <label class="visually-hidden lb-c">Ciudad</label>
+                <div class="text-danger"
+                    *ngIf="facturarFrom.get('nombre')?.hasError('required')
+                        && facturarFrom.get('nombre')?.touched">
+                    <span>Este campo es <strong>Obligatorio</strong> </span>
+                </div>
+                <label class="visually-hidden lb-b">Ciudad</label>
                 <input type="text" 
-                    id="ciudad_factu" 
-                    name = "ciudad_factu"
-                    class="form-control ip-c" 
+                    formControlName="ciudad"
+                    [ngModel]="cicli"
+                    class="form-control ip-b" 
                     placeholder="Ciudad" 
                 />
                 <label class="visually-hidden lb-d">Dirección</label>
                 <input type="text" 
-                    id="direcc_factu" 
-                    name = "direcc_factu"
+                    [ngModel]="dicli"
+                    formControlName="direcc"
                     class="form-control ip-d" 
                     placeholder="Dirección" 
                 />
                 <label class="visually-hidden lb-e">Teléfono</label>
                 <input type="number" 
-                    id="telf_factu" 
-                    name = "telf_factu"
+                    formControlName="tel"
+                    [ngModel]="tecli"
                     class="form-control ip-e" 
                     placeholder="Teléfono" 
                 />
@@ -68,58 +84,109 @@
         <div class="camaron">
             <h3>Camarón</h3>
             <div class="buscar">
-                <button class="btn">Buscar</button>
+                <button class="btn" (click)="consultarCamaron()" >Buscar</button>
                 <input type="text" 
-                    id="fac-camaron" 
-                    name = "fac-camaron"
+                    formControlName="idCam"
+                    [(ngModel)]="idCamaron"
                     class="form-control input-btn" 
                     placeholder="Camaron" 
                 />
+                <div class="text-danger"
+                    *ngIf="facturarFrom.get('idCam')?.hasError('required')
+                        && facturarFrom.get('idCam')?.touched">
+                    <span>Este campo es <strong>Obligatorio</strong> </span>
+                </div>
             </div >
             <div class="ingresos">
                 <label class="visually-hidden lb-a">Talla</label>
                 <input type="number" 
-                    id="talla_factu" 
-                    name = "talla_factu"
+                    formControlName="talla"
+                    [(ngModel)]="tallaCam"
                     class="form-control ip-a" 
                     placeholder="Talla" 
                 />
+                <div class="text-danger"
+                    *ngIf="facturarFrom.get('talla')?.hasError('required')
+                        && facturarFrom.get('talla')?.touched">
+                    <span>Este campo es <strong>Obligatorio</strong> </span>
+                </div>
                 <label class="visually-hidden lb-d">Peso</label>
                 <input type="text" 
-                    id="peso_factu" 
-                    name = "peso_factu"
+                    formControlName="peso"
+                    [(ngModel)]="pesoCam"
                     class="form-control ip-d" 
                     placeholder="Peso" 
                 />
             </div>
         </div>
         <div class="datosFin ingresos">
-            <label class="visually-hidden lb-a">Precio</label>
+            <label class="visually-hidden lb-a">Precio lb</label>
             <input type="number" 
-                id="precio_factu" 
-                name = "precio_factu"
+                formControlName="precio"
                 class="form-control ip-a" 
                 placeholder="Precio" 
+                [(ngModel)]="precio_cam"
             />
+            <div class="text-danger"
+                *ngIf="facturarFrom.get('precio')?.hasError('required')
+                    && facturarFrom.get('precio')?.touched">
+                <span>Este campo es <strong>Obligatorio</strong> </span>
+            </div>
+            <label class="visually-hidden lb-d">Cantidad lb</label>
+            <input type="number"
+                formControlName="cantidad"
+                class="form-control ip-d" 
+                placeholder="Cantida" 
+                [(ngModel)]="cantidad_lb"
+            />
+            <div class="text-danger"
+                *ngIf="facturarFrom.get('cantidad')?.hasError('required')
+                    && facturarFrom.get('cantidad')?.touched">
+                <span>Este campo es <strong>Obligatorio</strong> </span>
+            </div>
+            <label class="visually-hidden lb-e">Sub Total</label>
+            <input type="number" 
+                [(ngModel)]="sub_t"
+                value="{{cantidad_lb * precio_cam}}"
+                formControlName="sub_total"
+                class="form-control ip-e" 
+                placeholder="Sub Total" 
+            />
+            <div class="text-danger"
+                *ngIf="facturarFrom.get('sub_total')?.hasError('required')
+                    && facturarFrom.get('sub_total')?.touched">
+                <span>Este campo es <strong>Obligatorio</strong> </span>
+            </div>
             <label class="visually-hidden lb-b">IVA</label>
             <input type="number" 
-                id="iva_factu" 
-                name = "iva_factu"
+                [(ngModel)]="Iva"
+                formControlName="IVA"
                 class="form-control ip-b" 
                 placeholder="IVA" 
             />
+            <div class="text-danger"
+                *ngIf="facturarFrom.get('IVA')?.hasError('required')
+                    && facturarFrom.get('IVA')?.touched">
+                <span>Este campo es <strong>Obligatorio</strong> </span>
+            </div>
             <label class="visually-hidden lb-c">Total</label>
             <input type="number" 
-                id="total_factu" 
-                name = "total_factu"
+                formControlName="total"
+                [(ngModel)]="total_fac"
+                value="{{cantidad_lb * precio_cam * Iva + (cantidad_lb * precio_cam)}}"
                 class="form-control ip-c" 
                 placeholder="Total" 
             />
-            <button class="w-100 btn btn-lg btn-primary lb-e" 
-            type="submit">
-                Registrar
-            </button>
+            <div class="text-danger"
+                *ngIf="facturarFrom.get('total')?.hasError('required')
+                    && facturarFrom.get('total')?.touched">
+                <span>Este campo es <strong>Obligatorio</strong> </span>
+            </div>
         </div>
+        <button class="w-100 btn btn-lg btn-primary lb-e" 
+            type="submit" [disabled]="facturarFrom.invalid" (click)="agregarFactura()"> 
+                Registrar
+        </button>
     </form>
 </div>
  
