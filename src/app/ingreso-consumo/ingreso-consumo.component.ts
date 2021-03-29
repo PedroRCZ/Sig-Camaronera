@@ -6,6 +6,8 @@ import { Piscina} from '../models/piscina';
 import { ProductoServices } from '../services/producto.service';
 import { ConsumoServices } from '../services/consumo.service';
 import { Corrida } from '../models/corrida';
+import { Cosumo } from '../models/consumo';
+
 
 @Component({
   selector: 'app-ingreso-consumo',
@@ -28,7 +30,7 @@ export class IngresoConsumoComponent implements OnInit {
               private _consumoservices: ConsumoServices,
               private toastr: ToastrService
               ) { this.consumoForm = this.fb.group({
-                id: ['', Validators.required], 
+                id: [{value: '' , disabled: true}, Validators.required],
                 idCorrida: ['', Validators.required], 
                 idPisina: [{value: '' , disabled: true}, Validators.required],
                 idProducto: ['', Validators.required],
@@ -40,16 +42,30 @@ export class IngresoConsumoComponent implements OnInit {
   }
 
   agregarConsumo(){
-    
+    const CONSUMO: Cosumo = {
+      consumo_id: 1,
+      corrida_id: this.consumoForm.get('idCorrida')?.value,
+      producto_id: this.consumoForm.get('idProducto')?.value,
+      consumo_cantidad: this.consumoForm.get('cantidad')?.value,
+    }
+
+    console.log(CONSUMO);
+    this._consumoservices.guardarConsumo(CONSUMO).subscribe( data => {
+      this.toastr.success('El Consumo fue registrado con exito', 'Consumo Registrado');
+      this.consumoForm.reset();
+    },error =>{
+      console.log(error);
+      this.toastr.error('El Consumo No fue registrado con exito', 'Consumo No Registrado');
+    })
   }
   consultarPisina(){
     this._consumoservices.getCorridaById(this.consumoForm.get('idCorrida')?.value).subscribe(data1 => {
       if(Object.keys(data1).length === 0){
-        this.toastr.error('El Corrida No se encuentra registrado', 'Corrida No Registrado');
+        this.toastr.error('La Corrida No se encuentra registrado', 'Corrida No Registrado');
         this.idPis = " ";
         this.idCor = " ";
       }else{
-        this.toastr.success('El Corrida fue consultado con exito', 'Corrida Exite');
+        this.toastr.success('La Corrida fue consultado con exito', 'Corrida Exite');
         this.listCorrida = data1;
         console.log(data1);
         this.idPis = this.listCorrida[0].piscina_id;

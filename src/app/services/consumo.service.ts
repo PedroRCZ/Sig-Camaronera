@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Cosumo } from '../models/consumo';
 
 @Injectable({
     providedIn: 'root'
@@ -27,6 +28,10 @@ export class ConsumoServices{
 
     getCorridaById(id: number): Observable<any> {
         return this.http.get(this.url3 + id);
+    }
+
+    guardarConsumo(consumo: Cosumo): Observable<any>{
+        return this.http.post(this.url, consumo);
     }
 
 }

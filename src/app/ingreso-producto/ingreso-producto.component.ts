@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Producto } from '../models/producto';
-import { Proveedor } from '../models/proveedor';
 import { ProductoServices } from '../services/producto.service';
 
 @Component({
@@ -12,7 +11,6 @@ import { ProductoServices } from '../services/producto.service';
 })
 export class IngresoProductoComponent implements OnInit {
 
-  listProveedor: Proveedor[] = [];
   productoForm: FormGroup;
   constructor(private _productoservices:ProductoServices,
               private fb: FormBuilder,
