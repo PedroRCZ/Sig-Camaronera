@@ -8,8 +8,7 @@ import { Proveedor } from '../models/proveedor'
 })
 
 export class ProveedorServices{
-    url = "http://localhost:4000/gastos/proveedor";
-    url2 = "http://localhost:4000/gastos/producto/";
+    url = "http://localhost:4000/gastos/proveedor/";
 
     constructor(private http: HttpClient){    }
 
@@ -22,6 +21,6 @@ export class ProveedorServices{
     }
 
     getProveedorByID(id: number): Observable <any>{
-        return this.http.get(this.url2 + id);
+        return this.http.get(this.url + id);
     } 
 }

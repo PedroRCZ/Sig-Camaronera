@@ -8,7 +8,7 @@ import { Cliente } from '../models/cliente';
 })
 
 export class ClienteServices{
-    url = "http://localhost:4000/cliente";
+    url = "http://localhost:4000/cliente/";
 
     constructor(private http: HttpClient){ }
 
@@ -18,5 +18,8 @@ export class ClienteServices{
 
     guardarCliente(cliente: Cliente): Observable<any>{
         return this.http.post(this.url, cliente);
+    }
+    getClienteByID(id: number): Observable <any>{
+        return this.http.get(this.url+ id);
     }
 }
