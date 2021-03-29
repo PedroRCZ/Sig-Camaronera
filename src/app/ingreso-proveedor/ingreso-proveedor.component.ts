@@ -29,6 +29,7 @@ export class IngresoProveedorComponent implements OnInit {
   }
 
   agregarProveedor(){
+    console.log('ya nada')
     const PROVEEDOR: Proveedor = {
       proveedor_id: this.proveedorForm.get('id')?.value,
       proveedor_nombre: this.proveedorForm.get('nombre')?.value,
