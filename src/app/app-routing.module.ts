@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FacturarVentasComponent } from './facturar-ventas/facturar-ventas.component';
 import { IngresoClienteComponent } from './ingreso-cliente/ingreso-cliente.component';
+import { IngresoConsumoComponent } from './ingreso-consumo/ingreso-consumo.component';
 import { IngresoGastoComponent } from './ingreso-gasto/ingreso-gasto.component';
 import { IngresoProductoComponent } from './ingreso-producto/ingreso-producto.component';
 import { IngresoProveedorComponent } from './ingreso-proveedor/ingreso-proveedor.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'inventario', component: VisualizarInventarioComponent},
   {path: 'gastos', component: IngresoGastoComponent},
   {path: 'gastos/producto', component: IngresoProductoComponent},
-  {path: 'gastos/proveedor', component: IngresoProveedorComponent}
+  {path: 'gastos/proveedor', component: IngresoProveedorComponent},
+  {path: 'consumo', component: IngresoConsumoComponent}
 ];
 
 @NgModule({
