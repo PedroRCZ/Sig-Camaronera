@@ -1,0 +1,60 @@
+.ingresos{
+    display: grid;
+    grid-template-areas: 
+    " a "
+    " b "
+    " c "
+    " d "
+    " e "
+    " f ";
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+.struc{
+    display: grid;
+    grid-template-areas: 
+    "a b b b c c c c c c"
+    "d d d d d d d d d d";
+    text-align: center;
+    margin: 5px 0 5px 0;
+}
+.cl-a{
+    grid-area: a;
+}
+.cl-b{
+    grid-area: b;
+}
+.cl-c{
+    grid-area: c;
+}
+.cl-d{
+    grid-area: d;
+}
+.cl-e{
+    grid-area: e;
+}
+.lb{
+    grid-area: a;
+    width: 300px;
+    text-align: end;
+    
+}
+.ip{
+    grid-area: b;
+}
+
+.text-danger{
+    grid-area: d;
+}
+
+.btn-cliente{
+    display: grid;
+    grid-template-areas: 
+    "a a a b b c c c";
+    margin: 10px;
+}
+
+.btn{
+    grid-area: b;
+}

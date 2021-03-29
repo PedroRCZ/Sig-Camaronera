@@ -1,1 +1,102 @@
-<p>ingreso-consumo works!</p>
+<div>
+    <form action="" [formGroup]="consumoForm" >
+        <div class="Consumo">
+            <h3>Producto</h3>
+            <div class="ingresos">
+                <div class="cl-a struc">
+                    <label class="visually-hidden lb">ID</label>
+                    <input type="number" 
+                        formControlName="id"
+                        class="form-control ip" 
+                        placeholder="ID" 
+                    />
+                    <div class="text-danger"
+                        *ngIf="consumoForm.get('id')?.hasError('required')
+                        && consumoForm.get('id')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
+                </div>
+                <div class="cl-b struc">
+                    <button class="lb" (click)="consultarPisina()">Buscar</button>
+                    <input type="text" 
+                            [ngModel]="idCor"
+                            formControlName="idCorrida"
+                            class="form-control ip" 
+                            placeholder="Id Corrida" 
+                        />
+                    <div class="text-danger"
+                        *ngIf="consumoForm.get('idCorrida')?.hasError('required')
+                        && consumoForm.get('idCorrida')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
+                </div>
+                <div class="cl-c struc">
+                    <label class="visually-hidden lb">Estado</label>
+                    <input type="text" 
+                        [ngModel]="idPis"
+                        formControlName="idPisina"
+                        class="form-control ip" 
+                        placeholder="Id Piscina" 
+                    />
+                    <div class="text-danger"
+                        *ngIf="consumoForm.get('idPisina')?.hasError('required')
+                        && consumoForm.get('idPisina')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
+                </div>  
+            </div>
+            <div class="ingresos">
+                <div class="cl-b struc">
+                    <button class="lb" (click)="consultarProducto()">Buscar</button>
+                    <input type="text" 
+                            [ngModel]="idPro"
+                            formControlName="idProducto"
+                            class="form-control ip" 
+                            placeholder="Id Producto" 
+                        />
+                    <div class="text-danger"
+                        *ngIf="consumoForm.get('idProducto')?.hasError('required')
+                        && consumoForm.get('idProducto')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
+                </div>
+                <div class="cl-c struc">
+                    <label class="visually-hidden lb">Nombre</label>
+                    <input type="text" 
+                        [ngModel]="nomPro"
+                        formControlName="nomProduc"
+                        class="form-control ip" 
+                        placeholder="Nombre Producto" 
+                    />
+                    <div class="text-danger"
+                        *ngIf="consumoForm.get('nomProduc')?.hasError('required')
+                        && consumoForm.get('nomProduc')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
+                </div>  
+            </div>
+            <div class="ingresos">
+                <div class="cl-c struc">
+                    <label class="visually-hidden lb">Cantidad</label>
+                    <input type="text" 
+                        formControlName="cantidad"
+                        class="form-control ip" 
+                        placeholder="Cantidad Utilizada" 
+                    />
+                    <div class="text-danger"
+                        *ngIf="consumoForm.get('cantidad')?.hasError('required')
+                        && consumoForm.get('cantidad')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
+                </div>  
+            </div>
+            <div class="btn-cliente f">
+                <button class="w-100 btn btn-lg btn-primary btn" 
+                type="submit" [disabled]="consumoForm.invalid" (click)="agregarConsumo()"> 
+                    Registrar
+                </button> 
+            </div>
+        </div>  
+    </form>
+</div>
+ 
