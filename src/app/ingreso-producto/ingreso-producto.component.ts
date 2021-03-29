@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { ProveedorServices } from '../services/proveedor.services';
+import { Producto } from '../models/producto';
+import { Proveedor } from '../models/proveedor';
+import { ProductoServices } from '../services/producto.service';
 
 @Component({
   selector: 'app-ingreso-producto',
@@ -10,16 +12,15 @@ import { ProveedorServices } from '../services/proveedor.services';
 })
 export class IngresoProductoComponent implements OnInit {
 
+  listProveedor: Proveedor[] = [];
   productoForm: FormGroup;
-  constructor(private _proveedorservices:ProveedorServices,
+  constructor(private _productoservices:ProductoServices,
               private fb: FormBuilder,
               private toastr: ToastrService) {
                 this.productoForm = this.fb.group({
                   id: ['', Validators.required], 
                   nombre: ['', Validators.required], 
-                  precio: ['', Validators.required],
-                  idProducto: ['', Validators.required], 
-                  nombreProducto: ['', Validators.required]
+                  precio: ['', Validators.required]
       })
 
   }
@@ -27,15 +28,22 @@ export class IngresoProductoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  consultarProveedor(){
-    this._proveedorservices.getProveedorByID(this.productoForm.get('idProducto')?.value).subscribe(data => {
-      this.toastr.success('El Proveedor fue registrado con exito', 'Proveedor Registrado');
-      console.log(data);
-    })
-  }
-
   agregarProducto(){
+    const PRODUCTO: Producto = {
+      producto_id: this.productoForm.get('id')?.value,
+      producto_nombre: this.productoForm.get('nombre')?.value,
+      producto_precio: this.productoForm.get('precio')?.value,
+    }
 
+    console.log(PRODUCTO);
+    this._productoservices.guardarProducto(PRODUCTO).subscribe( data => {
+      this.toastr.success('El producto fue registrado con exito', 'Producto Registrado');
+      this.productoForm.reset();
+    },error =>{
+      console.log(error);
+      this.toastr.error('El producto No fue registrado con exito', 'Producto No Registrado');
+    })
+    
   }
 
 }

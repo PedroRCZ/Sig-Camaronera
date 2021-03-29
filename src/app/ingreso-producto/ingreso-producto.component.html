@@ -1,7 +1,7 @@
 
 
 <div>
-    <form action="" [formGroup]="productoForm" (ngSubmit)="agregarProducto">
+    <form action="" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
         <div class="proveedor">
             <h3>Producto</h3>
             <div class="ingresos">
@@ -14,6 +14,11 @@
                         class="form-control ip" 
                         placeholder="ID" 
                     />
+                    <div class="text-danger"
+                        *ngIf="productoForm.get('id')?.hasError('required')
+                        && productoForm.get('id')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
                 </div>
                 <div class="cl-b struc">
                     <label class="visually-hidden lb">Nombre</label>
@@ -24,6 +29,11 @@
                             class="form-control ip" 
                             placeholder="Nombre" 
                         />
+                    <div class="text-danger"
+                        *ngIf="productoForm.get('nombre')?.hasError('required')
+                        && productoForm.get('nombre')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
                 </div>
                 <div class="cl-c struc">
                     <label class="visually-hidden lb">Precio</label>
@@ -34,30 +44,12 @@
                         class="form-control ip" 
                         placeholder="Precio" 
                     />
+                    <div class="text-danger"
+                        *ngIf="productoForm.get('precio')?.hasError('required')
+                        && productoForm.get('precio')?.touched">
+                        <span>Este campo es <strong>Obligatorio</strong> </span>
+                    </div>
                 </div>  
-                <div>
-                    <h3>Proveedor</h3>
-                    <div class="cl-a struc">
-                    <button class="lb" (click)="consultarProveedor()">Buscar</button>
-                    <input type="number" 
-                        formControlName="idProducto"
-                        id="ruc_pro_gasto" 
-                        name = "ruc_pro_gasto"
-                        class="form-control ip" 
-                        placeholder="RUC" 
-                    />
-                </div>
-                <div class="cl-b struc">
-                    <label class="visually-hidden lb">Nombre</label>
-                    <input type="text" 
-                            formControlName="nombreProducto"
-                            id="nombre_pro_gasto" 
-                            name = "nombre_pro_gasto"
-                            class="form-control ip" 
-                            placeholder="Nombre" 
-                        />
-                </div>
-                </div>
                 <div class="btn-cliente f">
                     <button class="w-100 btn btn-lg btn-primary btn" 
                     type="submit" [disabled]="productoForm.invalid">
