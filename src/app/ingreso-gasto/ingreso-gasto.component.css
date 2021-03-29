@@ -11,10 +11,12 @@
 .struc{
     display: grid;
     grid-template-areas: 
-    "a b";
+    "a b b b c c c c c c"
+    "d d d d d d d d d d";
     text-align: center;
     margin: 5px 0 5px 0;
 }
+
 .cl-a{
     grid-area: a;
 }

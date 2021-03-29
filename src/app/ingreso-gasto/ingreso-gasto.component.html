@@ -1,6 +1,6 @@
 
 <div>
-    <form action="">
+    <form action="" [formGroup]="gastosForm">
         <div class="proveedor">
             <h3>Gastos</h3>
             <div class="ingresos">
@@ -8,83 +8,141 @@
                     <div class="cl-a struc">
                         <label class="visually-hidden lb">ID</label>
                         <input type="text" 
+                                formControlName="id_gasto"
                                 id="id_gasto" 
                                 name = "id_gasto"
                                 class="form-control ip" 
-                                placeholder="Nombre" 
+                                placeholder="ID" 
                         />
+                        <div class="text-danger"
+                            *ngIf="gastosForm.get('id_gasto')?.hasError('required')
+                            && gastosForm.get('id_gasto')?.touched">
+                            <span>Este campo es <strong>Obligatorio</strong> </span>
+                        </div>            
                     </div>
                     <div class="cl-b ingre">
                         <div class="a">
                             <h3>Proveedor</h3>
                             <div class="cl-a struc">
-                                <button class="lb">Buscar</button>
+                                <button class="lb" (click)="consultarProveedor()">Buscar</button>
                                 <input type="number" 
+                                    formControlName="idProveedor"
+                                    [ngModel]="idPro"
                                     id="ruc_pro_gasto" 
                                     name = "ruc_pro_gasto"
                                     class="form-control ip" 
                                     placeholder="RUC" 
                                 />
+                                <div class="text-danger"
+                                    *ngIf="gastosForm.get('idProveedor')?.hasError('required')
+                                    && gastosForm.get('idProveedor')?.touched">
+                                    <span>Este campo es <strong>Obligatorio</strong> </span>
+                                </div>
                             </div>
                             <div class="cl-b struc">
                                 <label class="visually-hidden lb">Nombre</label>
                                 <input type="text" 
-                                        id="nombre_pro_gasto" 
-                                        name = "nombre_pro_gasto"
-                                        class="form-control ip" 
-                                        placeholder="Nombre" 
-                                    />
+                                    formControlName="nombreProveedor"
+                                    [ngModel]="nomPro"
+                                    id="nombre_pro_gasto" 
+                                    name = "nombre_pro_gasto"
+                                    class="form-control ip" 
+                                    placeholder="Nombre" 
+                                />
+                                <div class="text-danger"
+                                    *ngIf="gastosForm.get('nombreProveedor')?.hasError('required')
+                                    && gastosForm.get('nombreProveedor')?.touched">
+                                    <span>Este campo es <strong>Obligatorio</strong> </span>
+                                </div>
                             </div>
                         </div>
                         <div class="b">
                             <h3>Producto</h3>
                             <div class="cl-a struc">
-                                <button class="lb">Buscar</button>
+                                <button class="lb" (click)="consultarProducto()">Buscar</button>
                                 <input type="number" 
-                                    id="ruc_pro_gasto" 
+                                    [ngModel]="idProd"
+                                    formControlName="idProducto"
+                                    id="id_pro_gasto" 
                                     name = "ruc_pro_gasto"
                                     class="form-control ip" 
                                     placeholder="RUC" 
                                 />
+                                <div class="text-danger"
+                                    *ngIf="gastosForm.get('idProducto')?.hasError('required')
+                                    && gastosForm.get('idProducto')?.touched">
+                                    <span>Este campo es <strong>Obligatorio</strong> </span>
+                                </div>
                             </div>
                             <div class="cl-b struc">
                                 <label class="visually-hidden lb">Nombre</label>
                                 <input type="text" 
-                                        id="nombre_pro_gasto" 
-                                        name = "nombre_pro_gasto"
-                                        class="form-control ip" 
-                                        placeholder="Nombre" 
-                                    />
+                                    formControlName="nombreProducto"
+                                    [ngModel]="nomProd"
+                                    id="nombre_prod_gasto" 
+                                    name = "nombre_prod_gasto"
+                                    class="form-control ip" 
+                                    placeholder="Nombre" 
+                                />
+                                <div class="text-danger"
+                                    *ngIf="gastosForm.get('nombreProducto')?.hasError('required')
+                                    && gastosForm.get('nombreProducto')?.touched">
+                                    <span>Este campo es <strong>Obligatorio</strong> </span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="cl-c struc">
                         <label class="visually-hidden lb">Descripción</label>
                         <input type="text" 
+                                formControlName="descripcion"
                                 id="desc_gasto" 
                                 name = "desc_gasto"
                                 class="form-control ip" 
                                 placeholder="Descripción" 
                         />
+                        <div class="text-danger"
+                            *ngIf="gastosForm.get('descripcion')?.hasError('required')
+                            && gastosForm.get('descripcion')?.touched">
+                            <span>Este campo es <strong>Obligatorio</strong> </span>
+                        </div>
                     </div>
                     <div class="cl-d ingre">
                         <div class="a struc">
                             <label class="visually-hidden lb">Cantidad</label>
                             <input type="text" 
+                                    formControlName="cantidad"
                                     id="cantidad_gasto" 
                                     name = "cantidad_gasto"
                                     class="form-control ip" 
                                     placeholder="Cantidad" 
                             />
+                            <div class="text-danger"
+                                *ngIf="gastosForm.get('cantidad')?.hasError('required')
+                                && gastosForm.get('cantidad')?.touched">
+                                <span>Este campo es <strong>Obligatorio</strong> </span>
+                            </div>
                         </div>
                         <div class="b struc">
                             <label class="visually-hidden lb">Monto</label>
                             <input type="text" 
+                                    formControlName="monto"
                                     id="monto_pro_gasto" 
                                     name = "monto_pro_gasto"
                                     class="form-control ip" 
                                     placeholder="Monto" 
                             />
+                            <div class="text-danger"
+                                *ngIf="gastosForm.get('monto')?.hasError('required')
+                                && gastosForm.get('monto')?.touched">
+                                <span>Este campo es <strong>Obligatorio</strong> </span>
+                            </div>
+                        </div>
+                        <div class="btn-cliente f">
+                            <button class="w-100 btn btn-lg btn-primary btn" 
+                            type="submit" [disabled]="gastosForm.invalid" (click)="agregarGasto()"> 
+                                Registrar
+                            </button> 
                         </div>
                     </div>
                 </div>
