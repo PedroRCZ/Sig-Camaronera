@@ -3,11 +3,11 @@
     <form action="" [formGroup]="facturarFrom" >
         <div class="id-fecha">
             <div class="id">
-                <label class="visually-hidden label">ID usuario</label>
+                <label class="visually-hidden label">ID Factura</label>
                 <input type="number" 
                     formControlName="id_factura"
                     class="form-control input" 
-                    placeholder="Id" 
+                    placeholder="Auto Generado" 
                 />
                 <div class="text-danger"
                     *ngIf="facturarFrom.get('id_factura')?.hasError('required')

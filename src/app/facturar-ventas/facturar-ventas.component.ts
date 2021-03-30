@@ -42,7 +42,7 @@ export class FacturarVentasComponent implements OnInit {
               private fb: FormBuilder,
               private toastr: ToastrService) { 
                 this.facturarFrom = this.fb.group({
-                  id_factura: ['', Validators.required],
+                  id_factura: [{value: '' , disabled: true}, Validators.required],
                   fecha_factura: ['', Validators.required],
                   id: ['', Validators.required],
                   nombre: [{value: '' , disabled: true}, Validators.required],
@@ -66,7 +66,7 @@ export class FacturarVentasComponent implements OnInit {
 
   agregarFactura(){
     const FACTURA: Factura = {
-      factura_id: this.facturarFrom.get('id_factura')?.value, 
+      factura_id: 2, 
       factura_fecha: this.facturarFrom.get('fecha_factura')?.value, 
       cliente_id: this.facturarFrom.get('id')?.value, 
       camaron_id: this.facturarFrom.get('idCam')?.value, 
@@ -77,15 +77,27 @@ export class FacturarVentasComponent implements OnInit {
       monto_peso: this.facturarFrom.get('cantidad')?.value,
     }
     console.log(FACTURA);
-    this._verventasservices.guardarVentas(FACTURA).subscribe( data => {
-      console.log(data)
-      this.toastr.success('El Factura fue registrado con exito', 'Factura Registrado');
-      this.facturarFrom.reset();
-    },error =>{
-      console.log(error);
-      this.toastr.error('El Factura No fue registrado con exito', 'Factura No Registrado');
-      this.facturarFrom.reset();
-    })
+    if(this.pesoCam >=  this.cantidad_lb){
+      this._verventasservices.guardarVentas(FACTURA).subscribe( data => {
+        console.log(data)
+        this.toastr.success('El Factura fue registrado con exito', 'Factura Registrada');
+        this.listCamaron[0].camaron_peso = this.pesoCam - this.cantidad_lb;
+        console.log(this.listCamaron[0].camaron_peso);
+        this._camaronservices.decrementoCamaron(this.facturarFrom.get('idCam')?.value,  this.listCamaron[0]).subscribe(data4 =>{
+          console.log(data4)
+        }, error => {
+          console.log(error);
+        })
+        this.facturarFrom.reset();
+      },error =>{
+        console.log(error);
+        this.toastr.error('El Factura No fue registrado con exito', 'Factura No Registrada');
+        this.facturarFrom.reset();
+      })
+    }else{
+      this.toastr.error('El Peso del la compra no puede ser mayor Peso Total', 'Factura No Registrada');
+    }
+    
   }
 
   consultarCamaron(){
