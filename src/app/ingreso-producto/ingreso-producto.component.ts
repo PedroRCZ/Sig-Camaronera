@@ -16,7 +16,7 @@ export class IngresoProductoComponent implements OnInit {
               private fb: FormBuilder,
               private toastr: ToastrService) {
                 this.productoForm = this.fb.group({
-                  id: ['', Validators.required], 
+                  id: [{value: '' , disabled: true}, Validators.required],
                   nombre: ['', Validators.required], 
                   precio: ['', Validators.required]
       })

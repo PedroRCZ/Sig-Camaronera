@@ -16,7 +16,8 @@ import { IngresoProveedorComponent } from './ingreso-proveedor/ingreso-proveedor
 import { IngresoProductoComponent } from './ingreso-producto/ingreso-producto.component';
 import { IngresoGastoComponent } from './ingreso-gasto/ingreso-gasto.component';
 import { IngresoConsumoComponent } from './ingreso-consumo/ingreso-consumo.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { MostarDashComponent } from './mostar-dash/mostar-dash.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http'
     IngresoProveedorComponent,
     IngresoProductoComponent,
     IngresoGastoComponent,
-    IngresoConsumoComponent
+    IngresoConsumoComponent,
+    MostarDashComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ body {
     font-size: .875rem;
 }
 
+
 .feather {
     width: 16px;
     height: 16px;
@@ -27,6 +28,7 @@ body {
 .sidebar {
     grid-area: a;
     display: inline;
+    
 }
 
 .cuerpo{
@@ -48,6 +50,7 @@ body {
     padding-top: .5rem;
     overflow-x: hidden;
     overflow-y: auto;
+    margin: 0px 5px 0px 0px;
     /* Scrollable contents if viewport is shorter than content. */
 }
 

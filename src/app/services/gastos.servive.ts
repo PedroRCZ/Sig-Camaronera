@@ -9,6 +9,7 @@ import { Gastos } from '../models/gastos'
 
 export class GastosServices{
     url = "http://localhost:4000/gastos/";
+    url1 = "http://localhost:4000/inventario/gasto/";
 
     constructor(private http: HttpClient){  }
 
@@ -19,7 +20,12 @@ export class GastosServices{
     guardarGastos(gastos: Gastos): Observable<any>{
         return this.http.post(this.url, gastos);
     }
+
     getGastosByID(id: number):Observable<any>{
         return this.http.get(this.url + id)
+    }
+
+    getGastoSumado(): Observable<any>{
+        return this.http.get(this.url1);
     }
 }

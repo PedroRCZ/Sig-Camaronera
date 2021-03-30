@@ -28,6 +28,7 @@ export class IngresoGastoComponent implements OnInit {
   listProveedor: Proveedor[] = [];
   listProducto: Producto[] = [];
   listProdProv: ProdProv[] = [];
+  listProdProv1: ProdProv[] = [];
   
   constructor(private _proveedorservices: ProveedorServices,
               private _productoservices: ProductoServices,
@@ -91,10 +92,9 @@ export class IngresoGastoComponent implements OnInit {
           console.log(error);
         })
       }else{
-        this.listProdProv = data;
         console.log(data);
-        console.log(this.listProdProv);
-        this.proprov = this.listProdProv[0].producto_proveedor_id;
+        this.listProdProv1 = data;
+        GASTOS.producto_proveedor_id = this.listProdProv1[0].producto_proveedor_id;
         this._gastosservices.guardarGastos(GASTOS).subscribe(data3 => {
           console.log(data3);
           this.toastr.success('El Gasto fue registrado con exito', 'Gasto Registrado');
@@ -104,7 +104,6 @@ export class IngresoGastoComponent implements OnInit {
           this.toastr.error('El Gasto No fue registrado con exito', 'Gasto No Registrado');
            this.gastosForm.reset();
         })
-        console.log(data);
       } 
     },error =>{
       console.log(error);

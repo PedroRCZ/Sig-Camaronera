@@ -7,12 +7,13 @@ import { IngresoGastoComponent } from './ingreso-gasto/ingreso-gasto.component';
 import { IngresoProductoComponent } from './ingreso-producto/ingreso-producto.component';
 import { IngresoProveedorComponent } from './ingreso-proveedor/ingreso-proveedor.component';
 import { LoginComponent } from './login/login.component';
+import { MostarDashComponent } from './mostar-dash/mostar-dash.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { VentasComponent } from './ventas/ventas.component';
 import { VisualizarInventarioComponent } from './visualizar-inventario/visualizar-inventario.component';
 
 const routes: Routes = [
-  {path: '', component: PrincipalComponent},
+  {path: 'dashboard', component: MostarDashComponent},
   {path: 'login', component: LoginComponent},
   {path: 'ventas/visualizar', component: VentasComponent },
   {path: 'ventas/facturar', component: FacturarVentasComponent },

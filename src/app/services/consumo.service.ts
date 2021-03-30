@@ -11,6 +11,7 @@ export class ConsumoServices{
     url = "http://localhost:4000/inventario/"
     url2 = "http://localhost:4000/inventario/piscina/"
     url3 = "http://localhost:4000/inventario/corrida/"
+    url4 = "http://localhost:4000/inventario/consumo/"
 
     constructor(private http: HttpClient){ }
 
@@ -32,6 +33,10 @@ export class ConsumoServices{
 
     guardarConsumo(consumo: Cosumo): Observable<any>{
         return this.http.post(this.url, consumo);
+    }
+
+    getConsumoSumado(): Observable<any>{
+        return this.http.get(this.url4);
     }
 
 }
