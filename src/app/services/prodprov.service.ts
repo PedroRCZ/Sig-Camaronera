@@ -10,6 +10,7 @@ import { ProdProv } from '../models/prodprov'
 export class ProdProvServices{
     url = "http://localhost:4000/gastos/prod/";
     url2 = "http://localhost:4000/gastos/prod/existe/";
+    url3 = "http://localhost:4000/gastos/f/";
 
     constructor(private http: HttpClient){ }
     
@@ -22,7 +23,7 @@ export class ProdProvServices{
     }
 
     guardarPro(prodpov: ProdProv): Observable<any>{
-        return this.http.post(this.url, prodpov);
+        return this.http.post(this.url3, prodpov);
     }
 
 

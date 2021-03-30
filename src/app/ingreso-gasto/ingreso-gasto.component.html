@@ -12,7 +12,7 @@
                                 id="id_gasto" 
                                 name = "id_gasto"
                                 class="form-control ip" 
-                                placeholder="ID" 
+                                placeholder="Auto Generado" 
                         />
                         <div class="text-danger"
                             *ngIf="gastosForm.get('id_gasto')?.hasError('required')
@@ -112,6 +112,7 @@
                             <label class="visually-hidden lb">Cantidad</label>
                             <input type="text" 
                                     formControlName="cantidad"
+                                    [(ngModel)]="cantidadT"
                                     id="cantidad_gasto" 
                                     name = "cantidad_gasto"
                                     class="form-control ip" 
@@ -127,10 +128,12 @@
                             <label class="visually-hidden lb">Monto</label>
                             <input type="text" 
                                     formControlName="monto"
+                                    [(ngModel)]="montoT"
                                     id="monto_pro_gasto" 
                                     name = "monto_pro_gasto"
                                     class="form-control ip" 
                                     placeholder="Monto" 
+                                    value="{{cantidadT * precio}}"
                             />
                             <div class="text-danger"
                                 *ngIf="gastosForm.get('monto')?.hasError('required')

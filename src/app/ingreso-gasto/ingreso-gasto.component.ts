@@ -20,7 +20,10 @@ export class IngresoGastoComponent implements OnInit {
   nomProd: string = "";
   idPro: string = "";
   idProd: string = "";
-  proprov: number = 0;
+  proprov: number = 1;
+  montoT: number = 0;
+  cantidadT: number = 0;
+  precio: number = 0;
   gastosForm: FormGroup;
   listProveedor: Proveedor[] = [];
   listProducto: Producto[] = [];
@@ -33,7 +36,7 @@ export class IngresoGastoComponent implements OnInit {
               private fb: FormBuilder,
               private toastr: ToastrService) { 
               this.gastosForm = this.fb.group({
-                id_gasto: ['', Validators.required], 
+                id_gasto: [{value: '' , disabled: true}, Validators.required],
                 idProveedor: ['', Validators.required], 
                 nombreProveedor: [{value: '' , disabled: true}, Validators.required],
                 idProducto: ['', Validators.required], 
@@ -57,6 +60,7 @@ export class IngresoGastoComponent implements OnInit {
       }else{
         this.toastr.success('El Producto fue consultado con exito', 'Producto Exite');
         this.listProducto = data;
+        this.precio = this.listProducto[0].producto_precio;
         this.nomProd = this.listProducto[0].producto_nombre;
         console.log(data);
       } 
@@ -66,23 +70,21 @@ export class IngresoGastoComponent implements OnInit {
   }
 
   agregarGasto(){
-    console.log("HO")
     const PRODPROV: ProdProv = {
       producto_proveedor_id: this.proprov, //pendiente
       proveedor_id:this.gastosForm.get('idProveedor')?.value,
       producto_id:this.gastosForm.get('idProducto')?.value,
     }
     const GASTOS: Gastos = {
-      gasto_id: this.gastosForm.get('id_gasto')?.value,
+      gasto_id: 1,
       producto_proveedor_id: this.proprov,//pendiente
       gasto_descripcion: this.gastosForm.get('descripcion')?.value,
       gasto_cantidad: this.gastosForm.get('cantidad')?.value,
-      gastos_monto: this.gastosForm.get('monto')?.value,
+      gastos_monto: this.cantidadT * this.precio,
     }
-    console.log('Hola');
+
     this._prodprovservices.getVerProdProvEx(PRODPROV).subscribe(data => {
-      if(Object.keys(data).length === 0){
-        console.log('nada')
+      if(Object.keys(data).length === 0){ 
         this._prodprovservices.guardarPro(PRODPROV).subscribe(data1 => {
           console.log(data1);
         },error =>{
@@ -90,6 +92,8 @@ export class IngresoGastoComponent implements OnInit {
         })
       }else{
         this.listProdProv = data;
+        console.log(data);
+        console.log(this.listProdProv);
         this.proprov = this.listProdProv[0].producto_proveedor_id;
         this._gastosservices.guardarGastos(GASTOS).subscribe(data3 => {
           console.log(data3);
