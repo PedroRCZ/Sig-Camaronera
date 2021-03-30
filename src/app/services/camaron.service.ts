@@ -19,4 +19,8 @@ export class CamaronServices{
     getCamaronById(id: number): Observable<any> {
         return this.http.get(this.url + id);
     }
+
+    decrementoCamaron(id: number, camaron: Camaron): Observable<any>{
+        return this.http.put(this.url + id, camaron);
+    }
 }
