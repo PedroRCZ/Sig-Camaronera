@@ -1,14 +1,15 @@
 
   
-  <div *ngIf="esta; else dashboard">
+  <!--<div *ngIf="esta; else dashboard">
 
     <app-login
     (acceso)="inicioSeccion($event)"
     ></app-login>
 
-  </div>
+  </div>-->
 
   <ng-template #dashboard>
-    <app-principal></app-principal>
+    
   </ng-template>
   
+  <app-principal></app-principal>

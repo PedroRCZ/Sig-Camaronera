@@ -10,7 +10,7 @@ export class AppComponent {
   esta = true; // cambiar a True
 
   inicioSeccion(estado: boolean){
-    this.esta = estado;
+    this.esta = false;
   }
 
 }
