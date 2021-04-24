@@ -8,22 +8,22 @@ import { ProdProv } from '../models/prodprov'
 })
 
 export class ProdProvServices{
-    url = "http://localhost:4000/gastos/prod/";
-    url2 = "http://localhost:4000/gastos/prod/existe/";
-    url3 = "http://localhost:4000/gastos/f/";
+    url = "https://back-sig.herokuapp.com/gastos/";
+    url2 = "https://back-sig.herokuapp.com/gastos/";
+    url3 = "https://back-sig.herokuapp.com/gastos/";
 
     constructor(private http: HttpClient){ }
     
     getVerProdProv(): Observable<any>{
-        return this.http.get(this.url);
+        return this.http.get(this.url+"prod/");
     }
 
     getVerProdProvEx(prodprov: ProdProv): Observable<any>{
-        return this.http.post(this.url2, prodprov);
+        return this.http.post(this.url2+"prod/existe/", prodprov);
     }
 
     guardarPro(prodpov: ProdProv): Observable<any>{
-        return this.http.post(this.url3, prodpov);
+        return this.http.post(this.url3+"f/", prodpov);
     }
 
 

@@ -9,7 +9,7 @@ import { login } from '../models/login';
 
 export class LoginServices{
 
-    url = "http://localhost:4000/login/";
+    url = "https://back-sig.herokuapp.com/login/";
 
     constructor(private http: HttpClient){ }
     

@@ -8,8 +8,8 @@ import { Gastos } from '../models/gastos'
 })
 
 export class GastosServices{
-    url = "http://localhost:4000/gastos/";
-    url1 = "http://localhost:4000/inventario/gasto/";
+    url = "https://back-sig.herokuapp.com/gastos/";
+    url1 = "https://back-sig.herokuapp.com/inventario/gasto/";
 
     constructor(private http: HttpClient){  }
 
@@ -18,7 +18,7 @@ export class GastosServices{
     }
 
     guardarGastos(gastos: Gastos): Observable<any>{
-        return this.http.post(this.url, gastos);
+        return this.http.post(this.url , gastos);
     }
 
     getGastosByID(id: number):Observable<any>{

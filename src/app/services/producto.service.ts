@@ -8,7 +8,7 @@ import { Producto } from '../models/producto';
 })
  
 export class ProductoServices{
-    url = "http://localhost:4000/gastos/producto/";
+    url = "https://back-sig.herokuapp.com/gastos/producto/";
 
     constructor(private http: HttpClient){ }
     

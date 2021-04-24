@@ -10,16 +10,16 @@ import { Factura } from '../models/facturaAgregar';
 
 export class VerVentasServices{
 
-    url = 'http://localhost:4000/ventas/visualizar';
-    url2 = 'http://localhost:4000/ventas/agregar/';
+    url = 'https://back-sig.herokuapp.com/ventas/';
+    url2 = 'https://back-sig.herokuapp.com/ventas/';
 
     constructor(private http: HttpClient){    }
 
     getVerVentas(): Observable<any> {
-        return this.http.get(this.url);
+        return this.http.get(this.url +"visualizar");
     }
 
     guardarVentas(factura: Factura): Observable<any>{
-        return this.http.post(this.url2, factura);
+        return this.http.post(this.url2+"agregar/", factura);
     }
 }

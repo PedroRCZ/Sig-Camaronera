@@ -8,7 +8,7 @@ import { Cliente } from '../models/cliente';
 })
 
 export class ClienteServices{
-    url = "http://localhost:4000/cliente/";
+    url = "https://back-sig.herokuapp.com/cliente/";
 
     constructor(private http: HttpClient){ }
 

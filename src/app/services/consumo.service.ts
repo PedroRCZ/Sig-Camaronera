@@ -8,10 +8,8 @@ import { Cosumo } from '../models/consumo';
 })
 
 export class ConsumoServices{
-    url = "http://localhost:4000/inventario/"
-    url2 = "http://localhost:4000/inventario/piscina/"
-    url3 = "http://localhost:4000/inventario/corrida/"
-    url4 = "http://localhost:4000/inventario/consumo/"
+    url = "https://back-sig.herokuapp.com/inventario/"
+
 
     constructor(private http: HttpClient){ }
 
@@ -24,11 +22,11 @@ export class ConsumoServices{
     }
 
     getPiscinaById(id: number): Observable<any> {
-        return this.http.get(this.url2 + id);
+        return this.http.get(this.url +"piscina/"+ id);
     }
 
     getCorridaById(id: number): Observable<any> {
-        return this.http.get(this.url3 + id);
+        return this.http.get(this.url + "corrida/" + id);
     }
 
     guardarConsumo(consumo: Cosumo): Observable<any>{
@@ -36,7 +34,7 @@ export class ConsumoServices{
     }
 
     getConsumoSumado(): Observable<any>{
-        return this.http.get(this.url4);
+        return this.http.get(this.url + "consumo/");
     }
 
 }

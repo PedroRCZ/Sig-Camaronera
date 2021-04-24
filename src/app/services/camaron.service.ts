@@ -8,7 +8,7 @@ import { Camaron } from '../models/camaron'
 })
 
 export class CamaronServices{
-    url = "http://localhost:4000/facturar/camaron/"
+    url = "https://back-sig.herokuapp.com/camaron/"
 
     constructor(private http: HttpClient){ }
 

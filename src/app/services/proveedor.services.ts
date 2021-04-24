@@ -8,7 +8,7 @@ import { Proveedor } from '../models/proveedor'
 })
 
 export class ProveedorServices{
-    url = "http://localhost:4000/gastos/proveedor/";
+    url = "https://back-sig.herokuapp.com/gastos/proveedor/";
 
     constructor(private http: HttpClient){    }
 
